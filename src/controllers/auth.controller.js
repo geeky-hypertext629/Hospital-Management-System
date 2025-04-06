@@ -211,6 +211,8 @@ export const logoutAdmin = asyncHandler(async (req, res) => {
 		.cookie('AdminToken', '', {
 			expires: new Date(Date.now()),
 			httpOnly: true,
+			secure: true,
+			sameSite: 'None',
 		})
 		.json({
 			success: true,
