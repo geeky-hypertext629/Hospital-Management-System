@@ -10,6 +10,8 @@ export const generateToken = (user, message, statusCode, res) => {
 				Date.now() + config.COOKIE_EXPIRES * 24 * 60 * 60 * 1000
 			),
 			httpOnly: true,
+			secure: true, // set to true if you're using HTTPS (you are, since you're on render.com)
+			sameSite: 'None', // 'Lax' or 'Strict' will block cross-site cookies
 		})
 		.json({
 			success: true,
